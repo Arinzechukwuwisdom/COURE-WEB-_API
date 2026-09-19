@@ -1,0 +1,6 @@
+@COURE_HostAddress = http://localhost:5276
+
+GET {{COURE_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
