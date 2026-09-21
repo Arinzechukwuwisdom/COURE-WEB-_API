@@ -17,7 +17,8 @@ namespace COURE.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>()
-                .HasData(new Country 
+                .HasData(
+                new Country 
                 {
                     Id = 1,
                     Name = "Nigeria", 
