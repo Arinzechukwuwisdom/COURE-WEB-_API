@@ -18,21 +18,22 @@ namespace COURE.Controllers
         {
             try
             {
-                var req = await _countryRepository.GetCountryByPhoneNumberAsync(phoneNumber);
+                var req = await _countryRepository
+                    .GetCountryByPhoneNumberAsync(phoneNumber);
+
                 if (req.IsSuccess)
                 {
                     return Ok(req);
                 }
-                else
-                {
-                    return BadRequest(req);
-                }
+
+                return StatusCode(req.StatusCode, req);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(
+                    StatusCodes.Status500InternalServerError,
+                    ex.Message);
             }
         }
-
     }
 }
