@@ -20,15 +20,18 @@ namespace COURE.Repository
             try
             {
                 phoneNumber = phoneNumber.Trim();
-
-                if (phoneNumber.StartsWith(""))
-                {
-                    phoneNumber = phoneNumber.Substring(1);
-                }
+                phoneNumber = phoneNumber.TrimStart('+');
 
                 var country = await _context.Countries
                     .FirstOrDefaultAsync(c =>
                         phoneNumber.StartsWith(c.CountryCode.ToString()));
+
+                //if (country==null)
+                //{
+                //    phoneNumber = phoneNumber.Substring(1);
+                //}
+
+                
 
                 if (country == null)
                 {
