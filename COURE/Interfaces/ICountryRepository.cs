@@ -1,10 +1,11 @@
-﻿using COURE.Models;
+﻿using COURE.Dtos;
+using COURE.Models;
 using COURE.Utilities;
 
 namespace COURE.Interfaces
 {
     public interface ICountryRepository
     {
-        Task<ResponseDetails<Country?>> GetCountryByPhoneNumberAsync(string phoneNumber);
+        Task<ResponseDetails<CountryDto?>> GetCountryByPhoneNumberAsync(string phoneNumber);
     }
 }
